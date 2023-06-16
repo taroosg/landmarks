@@ -16,19 +16,17 @@ struct ProfileSummary: View {
         Text(profile.username)
           .bold()
           .font(.title)
-        
+
         Text("Notifications: \(profile.prefersNotifications ? "On": "Off" )")
         Text("Seasonal Photos: \(profile.seasonalPhoto.rawValue)")
         Text("Goal Date: ") + Text(profile.goalDate, style: .date)
-        
-        
+
         Divider()
-        
+
         VStack(alignment: .leading) {
           Text("Completed Badges")
             .font(.headline)
-          
-          
+
           ScrollView(.horizontal) {
             HStack {
               HikeBadge(name: "First Hike")
@@ -41,18 +39,17 @@ struct ProfileSummary: View {
             .padding(.bottom)
           }
         }
-        
+
         Divider()
-        
+
         VStack(alignment: .leading) {
           Text("Recent Hikes")
             .font(.headline)
-          
+
           HikeView(hike: modelData.hikes[0])
         }
       }
     }
-    
   }
 }
 

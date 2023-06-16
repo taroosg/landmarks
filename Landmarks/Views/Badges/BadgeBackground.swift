@@ -17,35 +17,35 @@ struct BadgeBackground: View {
         let xOffset = (width * (1.0 - xScale)) / 2.0
         width *= xScale
         path.move(
-            to: CGPoint(
-              x: width * 0.95 + xOffset,
-                y: height * (0.20 + HexagonParameters.adjustment)
-            )
+          to: CGPoint(
+            x: width * 0.95 + xOffset,
+            y: height * (0.20 + HexagonParameters.adjustment)
+          )
         )
         HexagonParameters.segments.forEach { segment in
-            path.addLine(
-                to: CGPoint(
-                  x: width * segment.line.x + xOffset,
-                    y: height * segment.line.y
-                )
+          path.addLine(
+            to: CGPoint(
+              x: width * segment.line.x + xOffset,
+              y: height * segment.line.y
             )
+          )
           path.addQuadCurve(
-              to: CGPoint(
-                x: width * segment.curve.x + xOffset,
-                  y: height * segment.curve.y
-              ),
-              control: CGPoint(
-                x: width * segment.control.x + xOffset,
-                  y: height * segment.control.y
-              )
+            to: CGPoint(
+              x: width * segment.curve.x + xOffset,
+              y: height * segment.curve.y
+            ),
+            control: CGPoint(
+              x: width * segment.control.x + xOffset,
+              y: height * segment.control.y
+            )
           )
 
         }
       }
       .fill(.linearGradient(
-          Gradient(colors: [Self.gradientStart, Self.gradientEnd]),
-          startPoint: UnitPoint(x: 0.5, y: 0),
-          endPoint: UnitPoint(x: 0.5, y: 0.6)
+        Gradient(colors: [Self.gradientStart, Self.gradientEnd]),
+        startPoint: UnitPoint(x: 0.5, y: 0),
+        endPoint: UnitPoint(x: 0.5, y: 0.6)
       ))
 
     }

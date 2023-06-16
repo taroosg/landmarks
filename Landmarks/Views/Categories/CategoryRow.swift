@@ -17,7 +17,7 @@ struct CategoryRow: View {
         .font(.headline)
         .padding(.leading, 15)
         .padding(.top, 5)
-      
+
       ScrollView(.horizontal, showsIndicators: false) {
         HStack(alignment: .top, spacing: 0) {
           ForEach(items) { landmark in
@@ -25,7 +25,8 @@ struct CategoryRow: View {
               LandmarkDetail(landmark: landmark)
             } label: {
               CategoryItem(landmark: landmark)
-            }          }
+            }
+          }
         }
       }
       .frame(height: 185)
@@ -37,7 +38,7 @@ struct CategoryRow: View {
 
 struct CategoryRow_Previews: PreviewProvider {
   static var landmarks = ModelData().landmarks
-  
+
   static var previews: some View {
     CategoryRow(
       categoryName: landmarks[0].category.rawValue,
