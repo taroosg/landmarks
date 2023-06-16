@@ -18,7 +18,7 @@ struct Landmark: Hashable, Codable, Identifiable {
   var description: String
   var isFavorite: Bool
   var isFeatured: Bool
-
+  
   var category: Category
   enum Category: String, CaseIterable, Codable {
     case lakes = "Lakes"
@@ -33,9 +33,9 @@ struct Landmark: Hashable, Codable, Identifiable {
   }
   
   var featureImage: Image? {
-      isFeatured ? Image(imageName + "_feature") : nil
+    isFeatured ? Image(imageName + "_feature") : nil
   }
-
+  
   //  位置情報関連のプロパティ
   private var coordinates: Coordinates
   
